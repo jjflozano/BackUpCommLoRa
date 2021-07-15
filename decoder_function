@@ -1,0 +1,21 @@
+function Decode(fPort, bytes, variables) {
+
+  var temp = (bytes[0] << 8 | bytes[1])/100;
+  var lat = ((bytes[2] << 24)
+              + (bytes[3] << 16)
+              + (bytes[4] << 8)
+              + (bytes[5]))/1000000;
+  var long = ((bytes[6] << 24)
+              + (bytes[7] << 16)
+              + (bytes[8] << 8)
+              + (bytes[9]))/1000000;
+  var alt = ((bytes[10] << 16)
+              + (bytes[11] << 8)
+              + (bytes[12]))/100;
+  return {
+    Temperatura: temp
+    latitud: lat
+    longitud: long
+    altitud: alt
+  };
+}
